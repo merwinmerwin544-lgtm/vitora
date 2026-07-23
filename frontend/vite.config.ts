@@ -9,6 +9,9 @@ export default defineConfig({
     basicSsl()
   ],
   server: {
+    watch: {
+      ignored: ['**/android/**', '**/dist/**']
+    },
     proxy: {
       '/api': {
         target: 'http://localhost:5050',

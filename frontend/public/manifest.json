@@ -1,0 +1,17 @@
+{
+  "short_name": "Vitora",
+  "name": "Vitora Pediatric Malnutrition Screener",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#F5FFF7",
+  "theme_color": "#22C55E",
+  "display": "standalone",
+  "orientation": "portrait"
+}

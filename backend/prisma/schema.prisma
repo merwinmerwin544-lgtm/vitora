@@ -1,0 +1,101 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           Int        @id @default(autoincrement())
+  firebaseUid  String?    @unique
+  provider     String     @default("EMAIL")
+  email        String     @unique
+  name         String
+  profilePhoto String?
+  phoneNumber  String?
+  role         String     @default("HEALTH_WORKER")
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  lastLogin    DateTime?
+  patients     Patient[]
+  auditLogs    AuditLog[]
+}
+
+model Patient {
+  id            Int            @id @default(autoincrement())
+  name          String
+  ageMonths     Int
+  gender        String
+  parentContact String?
+  userId        Int
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  clinicalData  ClinicalData[]
+  faceAnalysis  FaceAnalysis[]
+  predictions   Prediction[]
+}
+
+model ClinicalData {
+  id                 Int      @id @default(autoincrement())
+  patientId          Int
+  patient            Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  heightCm           Float
+  weightKg           Float
+  muacCm             Float
+  bmi                Float
+  weightForHeightZ   Float
+  heightForAgeZ      Float
+  recordedAt         DateTime @default(now())
+}
+
+model FaceAnalysis {
+  id                  Int      @id @default(autoincrement())
+  patientId           Int
+  patient             Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  cheekHollowness     Float
+  templeDepression    Float
+  jawProminence       Float
+  cheekboneProminence Float
+  templeWidth         Float
+  facialWidthRatio    Float
+  jawWidthRatio       Float
+  symmetryScore       Float
+  recordedAt          DateTime @default(now())
+}
+
+model Prediction {
+  id             Int          @id @default(autoincrement())
+  patientId      Int
+  patient        Patient      @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  clinicalScore  Float
+  facialScore    Float
+  totalScore     Float
+  classification String       // Normal, Moderate Risk, High Risk
+  confidence     Float
+  predictedAt    DateTime     @default(now())
+  reports        Report[]
+}
+
+model Report {
+  id                   Int        @id @default(autoincrement())
+  predictionId         Int
+  prediction           Prediction @relation(fields: [predictionId], references: [id], onDelete: Cascade)
+  reportUuid           String     @unique
+  nutritionalAdvice    String
+  dietaryGuidelines    String
+  followUpInstructions String
+  pdfPath              String?
+  createdAt            DateTime   @default(now())
+}
+
+model AuditLog {
+  id        Int      @id @default(autoincrement())
+  userId    Int?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  action    String
+  ipAddress String?
+  timestamp DateTime @default(now())
+}

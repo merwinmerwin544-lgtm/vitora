@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+venv/
+.env
+.env.local
+
+# Builds
+dist/
+build/
+bin/
+obj/
+
+# Local databases
+*.db
+*.db-journal
+
+# IDE logs and configurations
+.antigravity-ide/
+.gemini/
+.vscode/
+.idea/
+*.log

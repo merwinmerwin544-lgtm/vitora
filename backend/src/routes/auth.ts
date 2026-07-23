@@ -36,4 +36,26 @@ router.get('/me', authMiddleware, async (req: AuthenticatedRequest, res: Respons
   return res.json({ user: req.user });
 });
 
+// Register clinician logout action and invalidate session audit logs
+router.post('/logout', authMiddleware, async (req: AuthenticatedRequest, res: Response) => {
+  const user = req.user;
+  if (!user) {
+    return res.status(401).json({ error: 'Not authenticated' });
+  }
+
+  try {
+    await prisma.auditLog.create({
+      data: {
+        userId: user.id,
+        action: 'USER_LOGGED_OUT',
+        ipAddress: req.ip,
+      },
+    });
+    return res.json({ success: true, message: 'Logged out successfully' });
+  } catch (error) {
+    console.error('Logout logging error:', error);
+    return res.status(500).json({ error: 'Internal server error during logout processing' });
+  }
+});
+
 export default router;

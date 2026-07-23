@@ -27,7 +27,16 @@ const Login: React.FC = () => {
       navigate('/');
     } catch (err: any) {
       console.error(err);
-      setError('OAuth authentication failed. Please try again.');
+      // Silently return if user closed the OAuth window
+      if (
+        err.code === 'auth/popup-closed-by-user' || 
+        err.message?.includes('popup closed') || 
+        err.message?.includes('cancelled by user')
+      ) {
+        console.log('OAuth popup closed by user. Returning to login page.');
+        return;
+      }
+      setError(`${provider.charAt(0) + provider.slice(1).toLowerCase()} authentication failed. Please try again.`);
     } finally {
       setAuthLoading(null);
     }
@@ -36,6 +45,20 @@ const Login: React.FC = () => {
   const handleEmailSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
+    // Step 1: Validate Email Format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim() || !emailRegex.test(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    // Step 2: Validate Password Length
+    if (!password || password.length < 6) {
+      setError('Password must be at least 6 characters.');
+      return;
+    }
+
     setAuthLoading('EMAIL');
 
     try {
@@ -48,7 +71,22 @@ const Login: React.FC = () => {
       navigate('/');
     } catch (err: any) {
       console.error(err);
-      setError(err.response?.data?.error || err.message || 'Email authentication failed. Please verify credentials.');
+      
+      // User-friendly error message mapping
+      let friendlyError = 'Email authentication failed. Please verify credentials.';
+      if (err.response) {
+        const backendError = err.response.data?.error || '';
+        if (backendError.includes('expired') || backendError.includes('Invalid') || backendError.includes('unverified')) {
+          friendlyError = 'Invalid, expired, or unverified authorization token.';
+        } else {
+          friendlyError = backendError;
+        }
+      } else if (err.request) {
+        friendlyError = 'Network error occurred. Please check your network and retry.';
+      } else {
+        friendlyError = err.message || friendlyError;
+      }
+      setError(friendlyError);
     } finally {
       setAuthLoading(null);
     }

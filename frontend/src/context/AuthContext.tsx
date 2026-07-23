@@ -21,10 +21,37 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+const decodeToken = (token: string) => {
+  try {
+    const parts = token.split('.');
+    let payloadPart = parts[1];
+    if (token.startsWith('mock_token_')) {
+      const stripped = token.substring(11);
+      payloadPart = stripped.split('.')[1];
+    }
+    if (!payloadPart) return null;
+    const base64 = payloadPart.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split('')
+        .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+        .join('')
+    );
+    return JSON.parse(jsonPayload);
+  } catch (error) {
+    console.error('Failed to decode token:', error);
+    return null;
+  }
+};
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const getStorage = () => {
+    return localStorage.getItem('vitora_remember_me') === 'false' ? sessionStorage : localStorage;
+  };
 
   useEffect(() => {
     // Bind session listener
@@ -34,12 +61,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(null);
         setToken(null);
         localStorage.removeItem('vitora_token');
+        sessionStorage.removeItem('vitora_token');
         setLoading(false);
         return;
       }
 
       try {
-        localStorage.setItem('vitora_token', session.idToken);
+        const storage = getStorage();
+        storage.setItem('vitora_token', session.idToken);
         setToken(session.idToken);
         
         // Sync with local database (the backend authMiddleware will auto-create or update user profile)
@@ -54,6 +83,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(null);
         setToken(null);
         localStorage.removeItem('vitora_token');
+        sessionStorage.removeItem('vitora_token');
         await authProvider.logoutSession();
       } finally {
         setLoading(false);
@@ -66,6 +96,48 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
     };
   }, []);
+
+  // Background token expiration and refresh orchestration
+  useEffect(() => {
+    if (!token) return;
+
+    const checkAndRefreshSession = async () => {
+      const decoded = decodeToken(token);
+      if (!decoded || !decoded.exp) return;
+
+      const expTime = decoded.exp * 1000;
+      const timeRemaining = expTime - Date.now();
+
+      // If token has expired or will expire in less than 5 minutes, trigger automated refresh
+      if (timeRemaining < 300000) {
+        console.log('Token nearing expiration, attempting refresh...');
+        try {
+          const freshToken = await authProvider.refreshToken();
+          if (freshToken) {
+            const storage = getStorage();
+            storage.setItem('vitora_token', freshToken);
+            setToken(freshToken);
+            
+            // Sync refreshed token context with database
+            const response = await api.post('/auth/sync', {}, {
+              headers: { Authorization: `Bearer ${freshToken}` }
+            });
+            setUser(response.data.user);
+          } else {
+            throw new Error('Refresh token failure');
+          }
+        } catch (err) {
+          console.error('Background session refresh failed. Forced logout initiated.', err);
+          await logout();
+        }
+      }
+    };
+
+    checkAndRefreshSession();
+    const interval = setInterval(checkAndRefreshSession, 30000); // Check every 30 seconds
+
+    return () => clearInterval(interval);
+  }, [token]);
 
   const loginWithProvider = async (provider: 'GOOGLE' | 'GITHUB' | 'APPLE' | 'EMAIL', email?: string, password?: string) => {
     setLoading(true);
@@ -99,8 +171,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const logout = async () => {
     setLoading(true);
     try {
+      const currentToken = token || localStorage.getItem('vitora_token') || sessionStorage.getItem('vitora_token');
+      if (currentToken) {
+        await api.post('/auth/logout', {}, {
+          headers: { Authorization: `Bearer ${currentToken}` }
+        }).catch((e) => console.warn('Failed to audit logout on server:', e));
+      }
+    } catch (error) {
+      console.warn('Backend session termination failed:', error);
+    }
+
+    try {
       await authProvider.logoutSession();
       localStorage.removeItem('vitora_token');
+      sessionStorage.removeItem('vitora_token');
       setToken(null);
       setUser(null);
     } catch (error) {

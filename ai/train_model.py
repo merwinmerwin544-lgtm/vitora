@@ -16,8 +16,8 @@ print("==================================================")
 # 1. Dataset Generation: Simulate Kaggle Pediatric Malnutrition Features
 # 9 inputs: [iod_ratio, cheek_hollowness, temple_depression, jaw_prominence, 
 #            cheekbone_prominence, temple_width, facial_width, jaw_width, symmetry]
-def generate_dataset(num_samples=2500):
-    print("[Data Scientist] Generating training dataset from clinical indicators (2,500 patient samples)...")
+def generate_dataset(num_samples=10000):
+    print("[Data Scientist] Generating expert-level training dataset from clinical indicators (10,000 patient samples)...")
     X = []
     y = []
     

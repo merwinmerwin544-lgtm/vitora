@@ -390,12 +390,12 @@ const Dashboard: React.FC = () => {
           </div>
           <div>
             <h1 className="text-lg font-extrabold tracking-wide text-vitora-text">VITORA</h1>
-            <span className="text-3xs font-bold text-vitora-secondary tracking-widest block uppercase">Clinician Desk</span>
+            <span className="text-xs font-bold text-vitora-secondary tracking-widest block uppercase">Clinician Desk</span>
           </div>
         </div>
 
         {/* Dynamic mini-stats badge for Nav bar */}
-        <div className="hidden md:flex items-center gap-6 px-4 py-1.5 bg-white/25 rounded-2xl border border-white/40 text-4xs font-extrabold uppercase text-vitora-text/60 tracking-wider">
+        <div className="hidden md:flex items-center gap-6 px-4 py-1.5 bg-white/25 rounded-2xl border border-white/40 text-xs font-extrabold uppercase text-vitora-text/60 tracking-wider">
           <div>Total: <span className="text-vitora-text font-black">{stats.total}</span></div>
           <div>High Risk: <span className="text-red-500 font-black">{stats.highRisk}</span></div>
           <div>Normal: <span className="text-emerald-500 font-black">{stats.normal}</span></div>
@@ -408,7 +408,7 @@ const Dashboard: React.FC = () => {
             </div>
             <div className="hidden sm:block text-left">
               <p className="text-xs font-bold text-vitora-text">Hello, {user?.name || 'User'} 👋</p>
-              <p className="text-4xs text-vitora-text/50 font-bold uppercase tracking-wider">Practitioner</p>
+              <p className="text-xs text-vitora-text/50 font-bold uppercase tracking-wider">Practitioner</p>
             </div>
           </div>
           <button 
@@ -430,15 +430,15 @@ const Dashboard: React.FC = () => {
       )}
 
       {/* --- CENTERED INTEGRATED DECK WIZARD --- */}
-      <main className="max-w-4xl mx-auto w-full relative z-10 flex-grow flex items-center justify-center py-6">
-        <div className="glass-panel w-full rounded-[32px] shadow-xl border-white/60 relative overflow-hidden flex flex-col justify-between min-h-[540px]">
+      <main className="max-w-5xl mx-auto w-full relative z-10 flex-grow flex items-center justify-center py-6">
+        <div className="glass-panel w-full rounded-[32px] shadow-xl border-white/60 relative overflow-hidden flex flex-col justify-between min-h-[640px]">
           
           {/* TAB BAR FOR WIZARD & ARCHIVE */}
           <div className="px-6 py-4 border-b border-vitora-text/10 bg-white/10 backdrop-blur-sm flex justify-between items-center z-15">
             <div className="flex bg-white/20 p-1 rounded-xl border border-white/30">
               <button
                 onClick={() => { setActiveTab('WIZARD'); setError(null); }}
-                className={`px-4 py-1.5 rounded-lg text-4xs font-black uppercase tracking-wider transition-colors flex items-center gap-1.5 ${
+                className={`px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-colors flex items-center gap-1.5 ${
                   activeTab === 'WIZARD' ? 'bg-vitora-primary text-white shadow-sm' : 'text-vitora-text/60 hover:text-vitora-text'
                 }`}
               >
@@ -446,7 +446,7 @@ const Dashboard: React.FC = () => {
               </button>
               <button
                 onClick={() => { setActiveTab('ARCHIVE'); setError(null); }}
-                className={`px-4 py-1.5 rounded-lg text-4xs font-black uppercase tracking-wider transition-colors flex items-center gap-1.5 ${
+                className={`px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-colors flex items-center gap-1.5 ${
                   activeTab === 'ARCHIVE' ? 'bg-vitora-primary text-white shadow-sm' : 'text-vitora-text/60 hover:text-vitora-text'
                 }`}
               >
@@ -454,7 +454,7 @@ const Dashboard: React.FC = () => {
               </button>
             </div>
             {activeTab === 'WIZARD' && deckStep > 0 && (
-              <div className="text-right text-4xs font-black text-vitora-secondary uppercase tracking-widest hidden sm:block">
+              <div className="text-right text-xs font-black text-vitora-secondary uppercase tracking-widest hidden sm:block">
                 Step {deckStep} / 5 | Patient: {name || 'Unknown'}
               </div>
             )}
@@ -476,7 +476,7 @@ const Dashboard: React.FC = () => {
                   <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
                     <div>
                       <h3 className="text-sm font-black text-vitora-text uppercase tracking-wider">Patient Screening History</h3>
-                      <p className="text-[10px] text-vitora-text/45 font-bold uppercase tracking-wide">Archived diagnostic records</p>
+                      <p className="text-xs text-vitora-text/45 font-bold uppercase tracking-wide">Archived diagnostic records</p>
                     </div>
                     <form onSubmit={handleSearch} className="relative w-full sm:w-64">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-vitora-text/30" />
@@ -522,10 +522,10 @@ const Dashboard: React.FC = () => {
                       >
                         <div className="space-y-0.5">
                           <p className="text-xs font-bold text-vitora-text">{item.patientName}</p>
-                          <span className="text-[10px] text-vitora-text/40 font-bold uppercase">{item.gender} | {item.ageMonths}m</span>
+                          <span className="text-xs text-vitora-text/40 font-bold uppercase">{item.gender} | {item.ageMonths}m</span>
                         </div>
                         <div className="text-right flex items-center gap-3">
-                          <span className={`px-2 py-0.5 rounded-full border text-[9px] font-black uppercase ${
+                          <span className={`px-2 py-0.5 rounded-full border text-xs font-black uppercase ${
                             item.classification === 'High Risk' ? 'text-red-500 border-red-500/20' : item.classification === 'Moderate Risk' ? 'text-amber-500 border-amber-500/20' : 'text-emerald-500 border-emerald-500/20'
                           }`}>
                             {item.classification}
@@ -540,7 +540,7 @@ const Dashboard: React.FC = () => {
                       </div>
                     ))}
                     {historyList.length === 0 && (
-                      <div className="text-center py-10 text-4xs font-bold uppercase tracking-wider text-vitora-text/30">
+                      <div className="text-center py-10 text-xs font-bold uppercase tracking-wider text-vitora-text/30">
                         No reports logged inside database
                       </div>
                     )}
@@ -564,7 +564,7 @@ const Dashboard: React.FC = () => {
                         exit="exit"
                         className="space-y-4"
                       >
-                        <span className="px-3.5 py-1 bg-vitora-primary/10 border border-vitora-primary/20 text-vitora-primary text-2xs font-extrabold uppercase rounded-full tracking-wider">
+                        <span className="px-3.5 py-1 bg-vitora-primary/10 border border-vitora-primary/20 text-vitora-primary text-sm font-extrabold uppercase rounded-full tracking-wider">
                           Diagnostic Desk
                         </span>
                         <h2 className="text-3xl font-extrabold text-vitora-text leading-tight max-w-lg">
@@ -606,7 +606,7 @@ const Dashboard: React.FC = () => {
                             
                             <div className="space-y-3">
                               <div>
-                                <label className="text-4xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Name</label>
+                                <label className="text-xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Name</label>
                                 <div className="relative">
                                   <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-vitora-text/40" />
                                   <input
@@ -621,7 +621,7 @@ const Dashboard: React.FC = () => {
                               </div>
                               <div className="grid grid-cols-2 gap-3">
                                 <div>
-                                  <label className="text-4xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Age (m)</label>
+                                  <label className="text-xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Age (m)</label>
                                   <div className="relative">
                                     <FileText className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-vitora-text/40" />
                                     <input
@@ -637,12 +637,12 @@ const Dashboard: React.FC = () => {
                                   </div>
                                 </div>
                                 <div>
-                                  <label className="text-4xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Gender</label>
+                                  <label className="text-xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Gender</label>
                                   <div className="flex bg-white/35 p-0.5 rounded-xl border border-white/50 relative">
                                     <button
                                       type="button"
                                       onClick={() => setGender('MALE')}
-                                      className={`flex-1 py-1 text-4xs font-black uppercase tracking-wider rounded-lg transition-all z-10 ${
+                                      className={`flex-1 py-1 text-xs font-black uppercase tracking-wider rounded-lg transition-all z-10 ${
                                         gender === 'MALE' ? 'bg-vitora-primary text-white shadow-sm' : 'text-vitora-text/60 hover:text-vitora-text'
                                       }`}
                                     >
@@ -651,7 +651,7 @@ const Dashboard: React.FC = () => {
                                     <button
                                       type="button"
                                       onClick={() => setGender('FEMALE')}
-                                      className={`flex-1 py-1 text-4xs font-black uppercase tracking-wider rounded-lg transition-all z-10 ${
+                                      className={`flex-1 py-1 text-xs font-black uppercase tracking-wider rounded-lg transition-all z-10 ${
                                         gender === 'FEMALE' ? 'bg-vitora-primary text-white shadow-sm' : 'text-vitora-text/60 hover:text-vitora-text'
                                       }`}
                                     >
@@ -661,7 +661,7 @@ const Dashboard: React.FC = () => {
                                 </div>
                               </div>
                               <div>
-                                <label className="text-4xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Parent Contact</label>
+                                <label className="text-xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Parent Contact</label>
                                 <div className="relative">
                                   <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-vitora-text/40" />
                                   <input
@@ -678,7 +678,7 @@ const Dashboard: React.FC = () => {
                             <div className="space-y-3">
                               <div className="grid grid-cols-2 gap-3">
                                 <div>
-                                  <label className="text-4xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Height (cm)</label>
+                                  <label className="text-xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Height (cm)</label>
                                   <div className="relative">
                                     <Ruler className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-vitora-text/40" />
                                     <input
@@ -693,7 +693,7 @@ const Dashboard: React.FC = () => {
                                   </div>
                                 </div>
                                 <div>
-                                  <label className="text-4xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Weight (kg)</label>
+                                  <label className="text-xs font-bold text-vitora-text/70 mb-1.5 block uppercase">Weight (kg)</label>
                                   <div className="relative">
                                     <Scale className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-vitora-text/40" />
                                     <input
@@ -709,7 +709,7 @@ const Dashboard: React.FC = () => {
                                 </div>
                               </div>
                               <div>
-                                <label className="text-4xs font-bold text-vitora-text/70 mb-1.5 block uppercase">MUAC (cm)</label>
+                                <label className="text-xs font-bold text-vitora-text/70 mb-1.5 block uppercase">MUAC (cm)</label>
                                 <div className="relative">
                                   <Activity className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-vitora-text/40" />
                                   <input
@@ -730,7 +730,7 @@ const Dashboard: React.FC = () => {
                                     initial={{ opacity: 0, height: 0 }}
                                     animate={{ opacity: 1, height: 'auto' }}
                                     exit={{ opacity: 0, height: 0 }}
-                                    className="p-3 bg-vitora-primary/5 border border-vitora-primary/20 rounded-xl space-y-1.5 text-4xs overflow-hidden"
+                                    className="p-3 bg-vitora-primary/5 border border-vitora-primary/20 rounded-xl space-y-1.5 text-xs overflow-hidden"
                                   >
                                     <h4 className="font-extrabold text-vitora-secondary uppercase tracking-wider flex items-center gap-1">
                                       <Sparkles className="w-3 h-3" /> Growth Curve Approximator
@@ -760,13 +760,13 @@ const Dashboard: React.FC = () => {
                             <button
                               type="button"
                               onClick={handleResetDeck}
-                              className="px-4 py-2 rounded-xl glass-button-secondary text-4xs font-bold uppercase border border-vitora-border/60"
+                              className="px-4 py-2 rounded-xl glass-button-secondary text-xs font-bold uppercase border border-vitora-border/60"
                             >
                               Cancel
                             </button>
                             <button
                               type="submit"
-                              className="flex items-center gap-2 px-5 py-2.5 rounded-xl glass-button text-2xs font-black shadow-md"
+                              className="flex items-center gap-2 px-5 py-2.5 rounded-xl glass-button text-sm font-black shadow-md"
                             >
                               Metrics Saved, Capture Face <ArrowRight className="w-3.5 h-3.5" />
                             </button>
@@ -793,14 +793,14 @@ const Dashboard: React.FC = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                           <div className="md:col-span-2 space-y-3">
-                            <div className="relative w-full h-52 sm:h-64 rounded-2xl bg-slate-900 border border-slate-700 shadow-inner overflow-hidden flex items-center justify-center">
+                            <div className="relative w-full h-64 sm:h-80 rounded-2xl bg-slate-900 border border-slate-700 shadow-inner overflow-hidden flex items-center justify-center">
                               {!capturedImage ? (
                                 <>
                                   {webcamError || !navigator.mediaDevices ? (
                                     <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-slate-950/90 text-white space-y-2 z-10">
                                       <AlertTriangle className="w-6 h-6 text-amber-500 animate-pulse" />
-                                      <h4 className="text-[10px] font-black uppercase tracking-wider text-amber-500">Camera Feed Blocked</h4>
-                                      <p className="text-[9px] font-semibold text-slate-300 max-w-xs leading-normal">
+                                      <h4 className="text-xs font-black uppercase tracking-wider text-amber-500">Camera Feed Blocked</h4>
+                                      <p className="text-xs font-semibold text-slate-300 max-w-xs leading-normal">
                                         Mobile browsers block media access on unencrypted connections. Please use the "Upload File" option below to take or select a photo.
                                       </p>
                                     </div>
@@ -821,7 +821,7 @@ const Dashboard: React.FC = () => {
                                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
                                         <div className="w-36 h-36 border-2 border-dashed border-vitora-primary/40 rounded-full animate-[spin_10s_linear_infinite]" />
                                         <div className="absolute w-44 h-44 border border-dashed border-vitora-secondary/20 rounded-full animate-[spin_20s_linear_infinite_reverse]" />
-                                        <span className="absolute text-[8px] text-vitora-primary font-black uppercase bg-slate-950/80 px-2.5 py-1 rounded-full border border-vitora-primary/20 tracking-wider">
+                                        <span className="absolute text-xs text-vitora-primary font-black uppercase bg-slate-950/80 px-2.5 py-1 rounded-full border border-vitora-primary/20 tracking-wider">
                                           Biometric Target Area
                                         </span>
                                       </div>
@@ -838,13 +838,13 @@ const Dashboard: React.FC = () => {
                                 <>
                                   <button
                                     onClick={capturePhoto}
-                                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button text-3xs font-bold shadow-md"
+                                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button text-xs font-bold shadow-md"
                                   >
                                     <Camera className="w-3.5 h-3.5" /> Capture Snapshot
                                   </button>
                                   <button
                                     onClick={() => fileInputRef.current?.click()}
-                                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button-secondary text-3xs font-bold border border-vitora-border/60"
+                                    className="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button-secondary text-xs font-bold border border-vitora-border/60"
                                   >
                                     <Upload className="w-3.5 h-3.5" /> Upload File
                                   </button>
@@ -852,7 +852,7 @@ const Dashboard: React.FC = () => {
                               ) : (
                                 <button
                                   onClick={() => { setCapturedImage(null); setSelectedFile(null); }}
-                                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button-secondary text-3xs font-bold border border-red-500/20 text-red-600 hover:bg-red-500/10"
+                                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button-secondary text-xs font-bold border border-red-500/20 text-red-600 hover:bg-red-500/10"
                                 >
                                   <RefreshCcw className="w-3.5 h-3.5" /> Retake Photo
                                 </button>
@@ -862,7 +862,7 @@ const Dashboard: React.FC = () => {
                           </div>
 
                           <div className="p-3.5 bg-white/20 border border-white/40 rounded-xl space-y-3 flex flex-col justify-between">
-                            <div className="space-y-1.5 text-4xs font-bold text-vitora-text/75">
+                            <div className="space-y-1.5 text-xs font-bold text-vitora-text/75">
                               <h4 className="font-extrabold uppercase text-vitora-text/50">Quality Checks</h4>
                               <div className="flex items-center justify-between p-1.5 rounded bg-white/30">
                                 <span>Centered Face</span>
@@ -881,7 +881,7 @@ const Dashboard: React.FC = () => {
                             {capturedImage && (
                               <button
                                 onClick={handleExecuteAI}
-                                className="w-full py-2.5 rounded-xl glass-button text-3xs font-black flex items-center justify-center gap-1.5 hover:scale-102 transition-transform"
+                                className="w-full py-2.5 rounded-xl glass-button text-xs font-black flex items-center justify-center gap-1.5 hover:scale-102 transition-transform"
                               >
                                 <Cpu className="w-4 h-4 animate-pulse" /> Analyze Image
                               </button>
@@ -893,7 +893,7 @@ const Dashboard: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => { setSlideDirection(-1); setDeckStep(1); }}
-                            className="px-4 py-2 rounded-xl glass-button-secondary text-4xs font-bold uppercase border border-vitora-border/60"
+                            className="px-4 py-2 rounded-xl glass-button-secondary text-xs font-bold uppercase border border-vitora-border/60"
                           >
                             Back to details
                           </button>
@@ -940,9 +940,9 @@ const Dashboard: React.FC = () => {
                         <div className="text-center space-y-2 relative z-10">
                           <div className="flex items-center justify-center gap-1.5 text-vitora-primary">
                             <RefreshCw className="w-4 h-4 animate-spin" />
-                            <span className="text-3xs font-black uppercase tracking-widest">{scanMessage}</span>
+                            <span className="text-xs font-black uppercase tracking-widest">{scanMessage}</span>
                           </div>
-                          <p className="text-[10px] text-vitora-text/50 font-bold uppercase tracking-wider">
+                          <p className="text-xs text-vitora-text/50 font-bold uppercase tracking-wider">
                             Fusing CNN FaceLandmarker + Local growth heuristics
                           </p>
                         </div>
@@ -965,7 +965,7 @@ const Dashboard: React.FC = () => {
                             <Activity className="w-5.5 h-5.5" />
                             <h3 className="text-md font-black tracking-tight text-vitora-text">3. Diagnostic Visualizations</h3>
                           </div>
-                          <span className={`px-2.5 py-0.5 rounded-full border text-4xs font-black uppercase ${
+                          <span className={`px-2.5 py-0.5 rounded-full border text-xs font-black uppercase ${
                             reportOutput.classification === 'High Risk' ? 'text-red-500 bg-red-500/10 border-red-500/20' : reportOutput.classification === 'Moderate Risk' ? 'text-amber-500 bg-amber-500/10 border-amber-500/20' : 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20'
                           }`}>
                             {reportOutput.classification}
@@ -976,37 +976,37 @@ const Dashboard: React.FC = () => {
                           
                           {/* Circle risk gauge */}
                           <div className="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center text-center border-white/40">
-                            <p className="text-4xs font-bold text-vitora-text/40 uppercase tracking-widest mb-3">Evaluated Score</p>
+                            <p className="text-xs font-bold text-vitora-text/40 uppercase tracking-widest mb-3">Evaluated Score</p>
                             
-                            <div className="relative w-28 h-28 flex items-center justify-center">
-                              <svg className="w-full h-full transform -rotate-90">
-                                <circle stroke="rgba(0,0,0,0.06)" fill="transparent" strokeWidth={6} r={34} cx={56} cy={56} />
+                            <div className="relative w-36 h-36 flex items-center justify-center">
+                              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 144 144">
+                                <circle stroke="rgba(0,0,0,0.06)" fill="transparent" strokeWidth={8} r={50} cx={72} cy={72} />
                                 <circle
                                   stroke={reportOutput.classification === 'High Risk' ? '#EF4444' : reportOutput.classification === 'Moderate Risk' ? '#F59E0B' : '#10B981'}
                                   fill="transparent"
-                                  strokeWidth={6}
-                                  strokeDasharray="213.6 213.6"
-                                  strokeDashoffset={213.6 - (reportOutput.overallScore / 100) * 213.6}
-                                  r={34}
-                                  cx={56}
-                                  cy={56}
+                                  strokeWidth={8}
+                                  strokeDasharray="314.2 314.2"
+                                  strokeDashoffset={314.2 - (reportOutput.overallScore / 100) * 314.2}
+                                  r={50}
+                                  cx={72}
+                                  cy={72}
                                   strokeLinecap="round"
                                 />
                               </svg>
                               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                <span className="text-lg font-black text-vitora-text">{reportOutput.overallScore}%</span>
-                                <span className="text-[8px] text-vitora-text/40 font-bold uppercase">Index</span>
+                                <span className="text-2xl font-black text-vitora-text">{reportOutput.overallScore}%</span>
+                                <span className="text-xs text-vitora-text/40 font-bold uppercase">Index</span>
                               </div>
                             </div>
-                            <p className="text-4xs text-vitora-text/50 font-bold uppercase tracking-wider mt-3">
+                            <p className="text-xs text-vitora-text/50 font-bold uppercase tracking-wider mt-3">
                               Accuracy: {(reportOutput.confidence * 100).toFixed(0)}%
                             </p>
                           </div>
 
                           {/* Patient Z-score Recharts BarChart */}
                           <div className="md:col-span-2 glass-panel p-4 rounded-2xl border-white/40 flex flex-col justify-between">
-                            <p className="text-4xs font-bold text-vitora-text/40 uppercase tracking-widest mb-2">WHO Z-Score Deviations</p>
-                            <div className="h-36 w-full">
+                            <p className="text-xs font-bold text-vitora-text/40 uppercase tracking-widest mb-2">WHO Z-Score Deviations</p>
+                            <div className="h-48 w-full">
                               <ResponsiveContainer width="100%" height="100%">
                                 <BarChart 
                                   data={[
@@ -1016,8 +1016,8 @@ const Dashboard: React.FC = () => {
                                   margin={{ top: 10, right: 10, left: -25, bottom: 0 }}
                                 >
                                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(0,0,0,0.04)" />
-                                  <XAxis dataKey="metric" stroke="#475569" fontSize={9} fontWeight="bold" />
-                                  <YAxis stroke="#475569" fontSize={9} fontWeight="bold" domain={[-4, 4]} />
+                                  <XAxis dataKey="metric" stroke="#475569" fontSize={11} fontWeight="bold" />
+                                  <YAxis stroke="#475569" fontSize={11} fontWeight="bold" domain={[-4, 4]} />
                                   <ReferenceLine y={-2} stroke="#EF4444" strokeDasharray="3 3" label={{ value: 'SAM Limit', fill: '#EF4444', fontSize: 7, position: 'top' }} />
                                   <Bar dataKey="value" fill="#3B82F6" radius={[4, 4, 0, 0]} barSize={20}>
                                     {[0, 1].map((_, index) => {
@@ -1035,13 +1035,13 @@ const Dashboard: React.FC = () => {
                         <div className="flex justify-between items-center pt-3 border-t border-vitora-text/10">
                           <button
                             onClick={handleResetDeck}
-                            className="px-4 py-2 rounded-xl glass-button-secondary text-4xs font-bold uppercase border border-vitora-border/60"
+                            className="px-4 py-2 rounded-xl glass-button-secondary text-xs font-bold uppercase border border-vitora-border/60"
                           >
                             Close
                           </button>
                           <button
                             onClick={() => { setSlideDirection(1); setDeckStep(5); }}
-                            className="flex items-center gap-1 px-5 py-2.5 rounded-xl glass-button text-2xs font-black shadow-md"
+                            className="flex items-center gap-1 px-5 py-2.5 rounded-xl glass-button text-sm font-black shadow-md"
                           >
                             Review Action Plan <ArrowRight className="w-3.5 h-3.5" />
                           </button>
@@ -1076,7 +1076,7 @@ const Dashboard: React.FC = () => {
                         >
                           <motion.div 
                             variants={flyUpVariant}
-                            className="p-4 bg-white/40 border border-white/50 rounded-2xl flex gap-2.5 text-4xs"
+                            className="p-4 bg-white/40 border border-white/50 rounded-2xl flex gap-2.5 text-xs"
                           >
                             <Apple className="w-5 h-5 text-vitora-primary flex-shrink-0" />
                             <div>
@@ -1089,7 +1089,7 @@ const Dashboard: React.FC = () => {
 
                           <motion.div 
                             variants={flyUpVariant}
-                            className="p-4 bg-white/40 border border-white/50 rounded-2xl flex gap-2.5 text-4xs"
+                            className="p-4 bg-white/40 border border-white/50 rounded-2xl flex gap-2.5 text-xs"
                           >
                             <Heart className="w-5 h-5 text-vitora-secondary flex-shrink-0" />
                             <div>
@@ -1109,14 +1109,14 @@ const Dashboard: React.FC = () => {
                           className="p-4 bg-vitora-primary/5 border border-vitora-primary/20 rounded-2xl flex flex-col sm:flex-row justify-between sm:items-center gap-3"
                         >
                           <div>
-                            <h4 className="text-3xs font-black uppercase text-vitora-secondary tracking-wider">Hospital Record Compiled</h4>
-                            <p className="text-4xs font-semibold text-vitora-text/70 leading-normal mt-0.5">
+                            <h4 className="text-xs font-black uppercase text-vitora-secondary tracking-wider">Hospital Record Compiled</h4>
+                            <p className="text-xs font-semibold text-vitora-text/70 leading-normal mt-0.5">
                               Download the professional PDF evaluation sheet saved inside database.
                             </p>
                           </div>
                           <button
                             onClick={() => downloadReportPDF(reportOutput.reportUuid)}
-                            className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl glass-button text-3xs font-black shadow-md self-start sm:self-center hover:scale-103 transition-transform"
+                            className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl glass-button text-xs font-black shadow-md self-start sm:self-center hover:scale-103 transition-transform"
                           >
                             <Download className="w-3.5 h-3.5" /> Download PDF Sheet
                           </button>
@@ -1125,13 +1125,13 @@ const Dashboard: React.FC = () => {
                         <div className="flex justify-between items-center pt-3 border-t border-vitora-text/10">
                           <button
                             onClick={() => { setSlideDirection(-1); setDeckStep(4); }}
-                            className="px-4 py-2 rounded-xl glass-button-secondary text-4xs font-bold uppercase border border-vitora-border/60 flex items-center gap-1"
+                            className="px-4 py-2 rounded-xl glass-button-secondary text-xs font-bold uppercase border border-vitora-border/60 flex items-center gap-1"
                           >
                             <ArrowLeft className="w-3.5 h-3.5" /> Back to Graph
                           </button>
                           <button
                             onClick={handleResetDeck}
-                            className="px-5 py-2.5 rounded-xl glass-button text-2xs font-black shadow-md flex items-center gap-1"
+                            className="px-5 py-2.5 rounded-xl glass-button text-sm font-black shadow-md flex items-center gap-1"
                           >
                             <Check className="w-3.5 h-3.5" /> Complete Screening
                           </button>
@@ -1150,7 +1150,7 @@ const Dashboard: React.FC = () => {
       </main>
 
       {/* --- FOOTER TRADEMARKS --- */}
-      <footer className="text-center py-4 text-5xs text-vitora-text/30 font-bold uppercase tracking-widest relative z-10">
+      <footer className="text-center py-4 text-xs text-vitora-text/30 font-bold uppercase tracking-widest relative z-10">
         Vitora Inc. © 2026 | Secured Pediatric Diagnostic Portal
       </footer>
 

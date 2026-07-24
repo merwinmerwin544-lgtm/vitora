@@ -124,21 +124,21 @@ const Login: React.FC = () => {
         initial={{ opacity: 0, y: 35 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: 'easeOut' }}
-        className="w-full max-w-sm glass-panel p-8 rounded-[32px] shadow-2xl relative z-10 border-white/60 text-center"
+        className="w-full max-w-md glass-panel p-10 rounded-[32px] shadow-2xl relative z-10 border-white/60 text-center"
       >
         {/* Logo and branding */}
         <div className="flex flex-col items-center mb-8">
           <motion.div
             animate={{ scale: [1, 1.04, 1] }}
             transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
-            className="w-14 h-14 bg-gradient-to-tr from-vitora-primary to-vitora-secondary rounded-2xl flex items-center justify-center shadow-md border border-white/30"
+            className="w-16 h-16 bg-gradient-to-tr from-vitora-primary to-vitora-secondary rounded-2xl flex items-center justify-center shadow-md border border-white/30"
           >
-            <Activity className="w-7 h-7 text-white" />
+            <Activity className="w-8 h-8 text-white" />
           </motion.div>
-          <h1 className="mt-4 text-2xl font-black tracking-widest text-vitora-text">
+          <h1 className="mt-4 text-3xl font-black tracking-widest text-vitora-text">
             VITORA
           </h1>
-          <p className="text-4xs font-bold uppercase tracking-wider text-vitora-text/40 mt-1">
+          <p className="text-xs font-bold uppercase tracking-wider text-vitora-text/40 mt-1">
             Clinician Authentication Desk
           </p>
         </div>
@@ -150,10 +150,10 @@ const Login: React.FC = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="mb-4 p-3 bg-red-500/10 border border-red-500/20 text-red-700 text-xs rounded-2xl flex items-start gap-2.5 overflow-hidden text-left"
+              className="mb-4 p-3.5 bg-red-500/10 border border-red-500/20 text-red-700 text-xs rounded-2xl flex items-start gap-2.5 overflow-hidden text-left"
             >
               <ShieldAlert className="w-4 h-4 flex-shrink-0 mt-0.5" />
-              <span className="font-semibold text-3xs leading-relaxed">{error}</span>
+              <span className="font-semibold text-xs leading-relaxed">{error}</span>
             </motion.div>
           )}
         </AnimatePresence>
@@ -165,7 +165,7 @@ const Login: React.FC = () => {
           <button
             onClick={() => handleOAuthLogin('GOOGLE')}
             disabled={authLoading !== null}
-            className="w-full py-3 rounded-2xl font-black text-3xs uppercase tracking-widest bg-white/40 border border-white/50 hover:bg-white/60 transition-colors flex items-center justify-center relative text-vitora-text"
+            className="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-widest bg-white/40 border border-white/50 hover:bg-white/60 transition-colors flex items-center justify-center relative text-vitora-text"
           >
             {authLoading === 'GOOGLE' ? (
               <Loader2 className="w-4 h-4 animate-spin text-vitora-primary" />
@@ -180,7 +180,7 @@ const Login: React.FC = () => {
           <button
             onClick={() => handleOAuthLogin('GITHUB')}
             disabled={authLoading !== null}
-            className="w-full py-3 rounded-2xl font-black text-3xs uppercase tracking-widest bg-white/40 border border-white/50 hover:bg-white/60 transition-colors flex items-center justify-center relative text-vitora-text"
+            className="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-widest bg-white/40 border border-white/50 hover:bg-white/60 transition-colors flex items-center justify-center relative text-vitora-text"
           >
             {authLoading === 'GITHUB' ? (
               <Loader2 className="w-4 h-4 animate-spin text-vitora-primary" />
@@ -195,7 +195,7 @@ const Login: React.FC = () => {
           <button
             onClick={() => handleOAuthLogin('APPLE')}
             disabled={authLoading !== null}
-            className="w-full py-3 rounded-2xl font-black text-3xs uppercase tracking-widest bg-white/40 border border-white/50 hover:bg-white/60 transition-colors flex items-center justify-center relative text-vitora-text"
+            className="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-widest bg-white/40 border border-white/50 hover:bg-white/60 transition-colors flex items-center justify-center relative text-vitora-text"
           >
             {authLoading === 'APPLE' ? (
               <Loader2 className="w-4 h-4 animate-spin text-vitora-primary" />
@@ -210,7 +210,7 @@ const Login: React.FC = () => {
           {!showEmailForm && (
             <button
               onClick={() => setShowEmailForm(true)}
-              className="w-full py-3 rounded-2xl font-black text-3xs uppercase tracking-widest bg-vitora-primary/10 border border-vitora-primary/20 hover:bg-vitora-primary/15 transition-colors flex items-center justify-center relative text-vitora-primary"
+              className="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-widest bg-vitora-primary/10 border border-vitora-primary/20 hover:bg-vitora-primary/15 transition-colors flex items-center justify-center relative text-vitora-primary"
             >
               <Mail className="w-3.5 h-3.5 mr-2" /> Continue with Email
             </button>
@@ -228,14 +228,14 @@ const Login: React.FC = () => {
               transition={{ type: 'spring', stiffness: 100, damping: 15 }}
               className="overflow-hidden text-left border-t border-vitora-text/5 pt-4 space-y-4"
             >
-              <h3 className="text-4xs font-black text-vitora-text/50 uppercase tracking-widest">
+              <h3 className="text-xs font-black text-vitora-text/50 uppercase tracking-widest">
                 {isRegister ? 'Clinician Signup' : 'Clinician Signin'}
               </h3>
 
               <form onSubmit={handleEmailSubmit} className="space-y-3">
                 {isRegister && (
                   <div>
-                    <label className="text-4xs font-bold text-vitora-text/75 mb-1.5 block uppercase">Name</label>
+                    <label className="text-xs font-bold text-vitora-text/75 mb-1.5 block uppercase">Name</label>
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-vitora-text/35" />
                       <input
@@ -251,7 +251,7 @@ const Login: React.FC = () => {
                 )}
 
                 <div>
-                  <label className="text-4xs font-bold text-vitora-text/75 mb-1.5 block uppercase">Email Address</label>
+                  <label className="text-xs font-bold text-vitora-text/75 mb-1.5 block uppercase">Email Address</label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-vitora-text/35" />
                     <input
@@ -266,7 +266,7 @@ const Login: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-4xs font-bold text-vitora-text/75 mb-1.5 block uppercase">Password</label>
+                  <label className="text-xs font-bold text-vitora-text/75 mb-1.5 block uppercase">Password</label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-vitora-text/35" />
                     <input
@@ -283,7 +283,7 @@ const Login: React.FC = () => {
                 <button
                   type="submit"
                   disabled={authLoading !== null}
-                  className="w-full py-3 rounded-xl font-black text-3xs uppercase tracking-widest glass-button shadow-md flex items-center justify-center gap-1.5 mt-4"
+                  className="w-full py-3 rounded-xl font-black text-xs uppercase tracking-widest glass-button shadow-md flex items-center justify-center gap-1.5 mt-4"
                 >
                   {authLoading === 'EMAIL' ? (
                     <Loader2 className="w-3.5 h-3.5 animate-spin text-white" />
@@ -295,7 +295,7 @@ const Login: React.FC = () => {
                 </button>
               </form>
 
-              <div className="flex justify-between items-center text-4xs font-extrabold uppercase mt-4">
+              <div className="flex justify-between items-center text-xs font-extrabold uppercase mt-4">
                 <button
                   onClick={() => setIsRegister(!isRegister)}
                   className="text-vitora-primary hover:text-vitora-secondary transition-colors"
@@ -312,7 +312,6 @@ const Login: React.FC = () => {
             </motion.div>
           )}
         </AnimatePresence>
-
       </motion.div>
     </div>
   );

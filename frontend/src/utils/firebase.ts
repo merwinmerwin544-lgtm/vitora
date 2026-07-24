@@ -112,6 +112,7 @@ export const authProvider = {
   // GitHub OAuth flow
   async continueWithGithub(): Promise<UserSessionProfile> {
     const provider = new GithubAuthProvider();
+    provider.setCustomParameters({ prompt: 'consent' });
     try {
       const result = await signInWithPopup(auth, provider);
       const idToken = await result.user.getIdToken();
@@ -124,8 +125,12 @@ export const authProvider = {
         idToken
       };
     } catch (popupError: any) {
-      if (popupError.code === 'auth/popup-blocked') {
-        console.warn('GitHub popup blocked, falling back to redirect...');
+      if (
+        popupError.code === 'auth/popup-blocked' ||
+        popupError.code === 'auth/operation-not-supported-in-this-environment' ||
+        popupError.code === 'auth/popup-closed-by-user'
+      ) {
+        console.warn('GitHub popup blocked or unsupported, falling back to redirect...');
         await signInWithRedirect(auth, provider);
         return new Promise(() => {});
       }
@@ -148,8 +153,12 @@ export const authProvider = {
         idToken
       };
     } catch (popupError: any) {
-      if (popupError.code === 'auth/popup-blocked') {
-        console.warn('Apple popup blocked, falling back to redirect...');
+      if (
+        popupError.code === 'auth/popup-blocked' ||
+        popupError.code === 'auth/operation-not-supported-in-this-environment' ||
+        popupError.code === 'auth/popup-closed-by-user'
+      ) {
+        console.warn('Apple popup blocked or unsupported, falling back to redirect...');
         await signInWithRedirect(auth, provider);
         return new Promise(() => {});
       }

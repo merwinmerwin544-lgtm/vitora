@@ -10,6 +10,17 @@ build/
 bin/
 obj/
 
+# Android / Capacitor artifacts
+frontend/android/.gradle/
+frontend/android/.gradle_home/
+frontend/android/.gradle_user/
+frontend/android/app/build/
+frontend/android/app/.cxx/
+frontend/android/capacitor-cordova-android-plugins/build/
+frontend/android/build/
+*.apk
+*.aab
+
 # Local databases
 *.db
 *.db-journal

@@ -105,20 +105,20 @@
   <!-- 1. LOGIN SCREEN -->
   <!-- ========================================== -->
   <div id="login-screen" class="min-h-screen flex items-center justify-center p-4 relative z-10">
-    <div class="w-full max-w-sm glass-panel p-8 rounded-[32px] shadow-2xl text-center border-white/60">
+    <div class="w-full max-w-md glass-panel p-10 rounded-[32px] shadow-2xl text-center border-white/60">
       
       <div class="flex flex-col items-center mb-8">
         <div class="w-14 h-14 bg-gradient-to-tr from-vitora-primary to-vitora-secondary rounded-2xl flex items-center justify-center shadow-md border border-white/30">
           <i data-lucide="activity" class="w-7 h-7 text-white"></i>
         </div>
         <h1 class="mt-4 text-2xl font-black tracking-widest text-vitora-text">VITORA</h1>
-        <p class="text-[9px] font-black uppercase tracking-wider text-vitora-text/40 mt-1">Pediatric Screening Platform</p>
+        <p class="text-xs font-black uppercase tracking-wider text-vitora-text/40 mt-1">Pediatric Screening Platform</p>
       </div>
 
       <!-- Sign In Options -->
       <div class="space-y-3">
         <!-- Google -->
-        <button onclick="openOAuthPicker('Google')" class="w-full py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest bg-white/50 border border-white/60 hover:bg-white/70 transition-all flex items-center justify-center text-vitora-text shadow-sm active:scale-98">
+        <button onclick="openOAuthPicker('Google')" class="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-widest bg-white/50 border border-white/60 hover:bg-white/70 transition-all flex items-center justify-center text-vitora-text shadow-sm active:scale-98">
           <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
             <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -128,14 +128,14 @@
         </button>
 
         <!-- GitHub -->
-        <button onclick="openOAuthPicker('GitHub')" class="w-full py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest bg-white/50 border border-white/60 hover:bg-white/70 transition-all flex items-center justify-center text-vitora-text shadow-sm active:scale-98">
+        <button onclick="openOAuthPicker('GitHub')" class="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-widest bg-white/50 border border-white/60 hover:bg-white/70 transition-all flex items-center justify-center text-vitora-text shadow-sm active:scale-98">
           <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
             <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
           </svg> Continue with GitHub
         </button>
 
         <!-- Apple -->
-        <button onclick="openOAuthPicker('Apple')" class="w-full py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest bg-white/50 border border-white/60 hover:bg-white/70 transition-all flex items-center justify-center text-vitora-text shadow-sm active:scale-98">
+        <button onclick="openOAuthPicker('Apple')" class="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-widest bg-white/50 border border-white/60 hover:bg-white/70 transition-all flex items-center justify-center text-vitora-text shadow-sm active:scale-98">
           <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
             <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.21.67-2.93 1.49-.62.69-1.16 1.84-1.01 2.96 1.12.09 2.27-.58 2.95-1.39z"/>
           </svg> Continue with Apple
@@ -143,12 +143,12 @@
 
         <div class="py-2 flex items-center justify-center gap-2">
           <span class="h-[1px] bg-slate-200 w-1/3"></span>
-          <span class="text-[9px] font-black text-slate-400 tracking-wider">OR</span>
+          <span class="text-xs font-black text-slate-400 tracking-wider">OR</span>
           <span class="h-[1px] bg-slate-200 w-1/3"></span>
         </div>
 
         <!-- Email Mock -->
-        <button onclick="toggleEmailForm()" class="w-full py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest bg-green-500/10 border border-green-500/20 hover:bg-green-500/15 transition-all text-green-600 flex items-center justify-center shadow-sm">
+        <button onclick="toggleEmailForm()" class="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-widest bg-green-500/10 border border-green-500/20 hover:bg-green-500/15 transition-all text-green-600 flex items-center justify-center shadow-sm">
           <i data-lucide="mail" class="w-3.5 h-3.5 mr-2"></i> Continue with Email
         </button>
       </div>
@@ -156,20 +156,20 @@
       <!-- Collapsible Email Inputs -->
       <div id="email-collapsible" class="hidden overflow-hidden transition-all duration-300 text-left border-t border-slate-100 mt-6 pt-4 space-y-4">
         <div>
-          <label class="text-[9px] font-black text-vitora-text/60 mb-1.5 block uppercase tracking-wider">Email Address</label>
+          <label class="text-xs font-black text-vitora-text/60 mb-1.5 block uppercase tracking-wider">Email Address</label>
           <div class="relative">
             <i data-lucide="mail" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
             <input id="login-email" type="email" placeholder="clinician@vitora.ai" value="clinician@vitora.ai" class="w-full pl-10 pr-3 py-2 text-xs rounded-xl glass-input text-vitora-text font-medium">
           </div>
         </div>
         <div>
-          <label class="text-[9px] font-black text-vitora-text/60 mb-1.5 block uppercase tracking-wider">Password</label>
+          <label class="text-xs font-black text-vitora-text/60 mb-1.5 block uppercase tracking-wider">Password</label>
           <div class="relative">
             <i data-lucide="lock" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400"></i>
             <input id="login-pass" type="password" placeholder="••••••••••••" value="Password123!" class="w-full pl-10 pr-3 py-2 text-xs rounded-xl glass-input text-vitora-text font-medium">
           </div>
         </div>
-        <button onclick="handleLogin('Email')" class="w-full py-3 rounded-xl font-black text-[10px] uppercase tracking-widest glass-button shadow-md flex items-center justify-center gap-1.5 active:scale-98">
+        <button onclick="handleLogin('Email')" class="w-full py-3 rounded-xl font-black text-xs uppercase tracking-widest glass-button shadow-md flex items-center justify-center gap-1.5 active:scale-98">
           Authenticate Session <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
         </button>
       </div>
@@ -190,12 +190,12 @@
         </div>
         <div>
           <h1 class="text-lg font-extrabold tracking-wide text-vitora-text">VITORA</h1>
-          <span class="text-[8px] font-bold text-vitora-secondary tracking-widest block uppercase">Clinician Desk</span>
+          <span class="text-xs font-bold text-vitora-secondary tracking-widest block uppercase">Clinician Desk</span>
         </div>
       </div>
 
       <!-- Local Network Status -->
-      <div class="hidden md:flex items-center gap-3 px-3 py-1 bg-green-500/10 border border-green-500/20 text-[9px] font-black text-green-600 uppercase tracking-widest rounded-xl">
+      <div class="hidden md:flex items-center gap-3 px-3 py-1 bg-green-500/10 border border-green-500/20 text-xs font-black text-green-600 uppercase tracking-widest rounded-xl">
         <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping"></span> Live Sandbox Database
       </div>
 
@@ -206,7 +206,7 @@
           </div>
           <div class="hidden sm:block text-left">
             <p class="text-xs font-bold text-vitora-text" id="user-name">Hello, Dr. Fleming 👋</p>
-            <p class="text-[8px] text-vitora-text/50 font-bold uppercase tracking-wider">Practitioner</p>
+            <p class="text-xs text-vitora-text/50 font-bold uppercase tracking-wider">Practitioner</p>
           </div>
         </div>
         <button onclick="handleLogout()" class="p-2 hover:bg-red-500/10 rounded-xl text-vitora-text/60 hover:text-red-500 transition-colors" title="Log Out">
@@ -216,20 +216,20 @@
     </header>
 
     <!-- CENTERED CONVEYOR WIZARD CONTAINER -->
-    <main class="max-w-4xl mx-auto w-full flex-grow flex items-center justify-center py-4">
-      <div class="glass-panel w-full rounded-[32px] shadow-xl border-white/60 overflow-hidden flex flex-col justify-between min-h-[550px] relative">
+    <main class="max-w-5xl mx-auto w-full flex-grow flex items-center justify-center py-4">
+      <div class="glass-panel w-full rounded-[32px] shadow-xl border-white/60 overflow-hidden flex flex-col justify-between min-h-[640px] relative">
         
         <!-- CARD HEADER TAB SWITCHERS -->
         <div class="px-6 py-4 border-b border-slate-100 bg-white/10 backdrop-blur-sm flex justify-between items-center z-20">
           <div class="flex bg-slate-200/50 p-1 rounded-xl border border-white/30">
-            <button onclick="switchTab('WIZARD')" id="tab-btn-wizard" class="px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 bg-vitora-primary text-white shadow-sm">
+            <button onclick="switchTab('WIZARD')" id="tab-btn-wizard" class="px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 bg-vitora-primary text-white shadow-sm">
               <i data-lucide="activity" class="w-3 h-3"></i> Diagnostic Wizard
             </button>
-            <button onclick="switchTab('ARCHIVE')" id="tab-btn-archive" class="px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 text-vitora-text/60 hover:text-vitora-text">
+            <button onclick="switchTab('ARCHIVE')" id="tab-btn-archive" class="px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 text-vitora-text/60 hover:text-vitora-text">
               <i data-lucide="folder-open" class="w-3.5 h-3.5"></i> Screening Archive
             </button>
           </div>
-          <div id="step-counter-text" class="text-[9px] font-black text-vitora-secondary uppercase tracking-widest hidden sm:block">
+          <div id="step-counter-text" class="text-xs font-black text-vitora-secondary uppercase tracking-widest hidden sm:block">
             ACTIVE WORKSPACE
           </div>
         </div>
@@ -244,7 +244,7 @@
             
             <!-- STEP 0: WELCOME & START -->
             <div id="w-step-0" class="conveyor-step active space-y-4">
-              <span class="px-3 py-1 bg-vitora-primary/10 border border-vitora-primary/20 text-vitora-primary text-[10px] font-black uppercase rounded-full tracking-wider">
+              <span class="px-3 py-1 bg-vitora-primary/10 border border-vitora-primary/20 text-vitora-primary text-xs font-black uppercase rounded-full tracking-wider">
                 Vitora AI Core
               </span>
               <h2 class="text-3xl font-extrabold text-vitora-text leading-tight max-w-lg">
@@ -272,16 +272,16 @@
                   
                   <div class="space-y-3">
                     <div>
-                      <label class="text-[8px] font-black text-vitora-text/60 mb-1 block uppercase">Patient Full Name</label>
+                      <label class="text-xs font-black text-vitora-text/60 mb-1 block uppercase">Patient Full Name</label>
                       <input id="patient-name" type="text" required placeholder="Marcus Aurelius" class="w-full px-3 py-2 text-xs rounded-xl glass-input text-vitora-text font-semibold">
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                       <div>
-                        <label class="text-[8px] font-black text-vitora-text/60 mb-1 block uppercase">Age (Months)</label>
+                        <label class="text-xs font-black text-vitora-text/60 mb-1 block uppercase">Age (Months)</label>
                         <input id="patient-age" type="number" required min="1" max="60" placeholder="24" class="w-full px-3 py-2 text-xs rounded-xl glass-input text-vitora-text font-semibold">
                       </div>
                       <div>
-                        <label class="text-[8px] font-black text-vitora-text/60 mb-1 block uppercase">Gender</label>
+                        <label class="text-xs font-black text-vitora-text/60 mb-1 block uppercase">Gender</label>
                         <select id="patient-gender" class="w-full px-3 py-2 text-xs rounded-xl glass-input text-vitora-text font-bold">
                           <option value="MALE">Boy</option>
                           <option value="FEMALE">Girl</option>
@@ -289,7 +289,7 @@
                       </div>
                     </div>
                     <div>
-                      <label class="text-[8px] font-black text-vitora-text/60 mb-1 block uppercase">Caregiver Contact</label>
+                      <label class="text-xs font-black text-vitora-text/60 mb-1 block uppercase">Caregiver Contact</label>
                       <input id="patient-contact" type="text" placeholder="+1 555-0199" class="w-full px-3 py-2 text-xs rounded-xl glass-input text-vitora-text font-semibold">
                     </div>
                   </div>
@@ -297,16 +297,16 @@
                   <div class="space-y-3">
                     <div class="grid grid-cols-2 gap-3">
                       <div>
-                        <label class="text-[8px] font-black text-vitora-text/60 mb-1 block uppercase">Height (cm)</label>
+                        <label class="text-xs font-black text-vitora-text/60 mb-1 block uppercase">Height (cm)</label>
                         <input id="patient-height" type="number" step="0.1" required placeholder="88.5" class="w-full px-3 py-2 text-xs rounded-xl glass-input text-vitora-text font-semibold">
                       </div>
                       <div>
-                        <label class="text-[8px] font-black text-vitora-text/60 mb-1 block uppercase">Weight (kg)</label>
+                        <label class="text-xs font-black text-vitora-text/60 mb-1 block uppercase">Weight (kg)</label>
                         <input id="patient-weight" type="number" step="0.1" required placeholder="11.8" class="w-full px-3 py-2 text-xs rounded-xl glass-input text-vitora-text font-semibold">
                       </div>
                     </div>
                     <div>
-                      <label class="text-[8px] font-black text-vitora-text/60 mb-1 block uppercase">MUAC (cm) - Mid-Arm Circumference</label>
+                      <label class="text-xs font-black text-vitora-text/60 mb-1 block uppercase">MUAC (cm) - Mid-Arm Circumference</label>
                       <input id="patient-muac" type="number" step="0.1" required placeholder="12.5" class="w-full px-3 py-2 text-xs rounded-xl glass-input text-vitora-text font-semibold">
                     </div>
 
@@ -314,17 +314,17 @@
                     <div class="p-3.5 bg-green-500/5 border border-green-500/10 rounded-2xl flex items-center justify-between">
                       <div class="flex items-center gap-2">
                         <i data-lucide="sparkles" class="w-4 h-4 text-green-600"></i>
-                        <span class="text-[9px] font-black text-green-700 uppercase tracking-widest">Curve Estimator</span>
+                        <span class="text-xs font-black text-green-700 uppercase tracking-widest">Curve Estimator</span>
                       </div>
-                      <span class="text-[10px] font-black text-vitora-text uppercase bg-white/60 px-2 py-0.5 rounded-lg border border-white">Active</span>
+                      <span class="text-xs font-black text-vitora-text uppercase bg-white/60 px-2 py-0.5 rounded-lg border border-white">Active</span>
                     </div>
                   </div>
 
                 </div>
 
                 <div class="flex justify-between items-center pt-3 border-t border-slate-100">
-                  <button type="button" onclick="goToStep(0)" class="px-4 py-2 rounded-xl glass-button-secondary text-[9px] font-black uppercase border border-slate-200">Back</button>
-                  <button type="submit" class="flex items-center gap-1.5 px-5 py-2.5 rounded-xl glass-button text-[10px] font-black shadow-md">
+                  <button type="button" onclick="goToStep(0)" class="px-4 py-2 rounded-xl glass-button-secondary text-xs font-black uppercase border border-slate-200">Back</button>
+                  <button type="submit" class="flex items-center gap-1.5 px-5 py-2.5 rounded-xl glass-button text-xs font-black shadow-md">
                     Metrics Saved, Capture Face <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                   </button>
                 </div>
@@ -342,28 +342,28 @@
                 <div class="md:col-span-2 space-y-3">
                   
                   <!-- Compact video container -->
-                  <div class="relative w-full h-52 sm:h-64 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex items-center justify-center shadow-inner">
+                  <div class="relative w-full h-64 sm:h-80 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden flex items-center justify-center shadow-inner">
                     <!-- Standard PWA mock webcam feed -->
                     <div id="mock-camera-overlay" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white space-y-2 z-10 bg-slate-900/40">
                       <!-- Center Target Graphic -->
                       <div class="w-40 h-40 border-2 border-dashed border-vitora-primary/60 rounded-full flex items-center justify-center scale-x-[0.65] relative scale-y-[0.80]">
-                        <span class="text-[8px] text-vitora-primary font-black uppercase bg-slate-950/80 px-2 py-0.5 rounded-full scale-x-[1.5] scale-y-[1.25]">Align Face</span>
+                        <span class="text-xs text-vitora-primary font-black uppercase bg-slate-950/80 px-2 py-0.5 rounded-full scale-x-[1.5] scale-y-[1.25]">Align Face</span>
                       </div>
                     </div>
                   </div>
 
                   <div class="flex justify-center gap-3">
-                    <button onclick="triggerLaserScan()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button text-[10px] font-black shadow-md">
+                    <button onclick="triggerLaserScan()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button text-xs font-black shadow-md">
                       <i data-lucide="camera" class="w-3.5 h-3.5"></i> Capture & Analyze
                     </button>
-                    <button onclick="triggerFileSelector()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button-secondary text-[10px] font-black border border-slate-200">
+                    <button onclick="triggerFileSelector()" class="flex items-center gap-1.5 px-4 py-2 rounded-xl glass-button-secondary text-xs font-black border border-slate-200">
                       <i data-lucide="upload" class="w-3.5 h-3.5"></i> Upload from Gallery
                     </button>
                   </div>
                 </div>
 
                 <div class="p-4 bg-white/30 border border-white/50 rounded-2xl flex flex-col justify-between h-full">
-                  <div class="space-y-2 text-[9px] font-semibold text-vitora-text/70">
+                  <div class="space-y-2 text-xs font-semibold text-vitora-text/70">
                     <h4 class="font-extrabold uppercase text-vitora-text/45 tracking-wider">Quality checklist</h4>
                     <div class="flex items-center justify-between p-2 rounded bg-white/40 border border-white">
                       <span>Anatomical alignment</span>
@@ -375,14 +375,14 @@
                     </div>
                   </div>
                   
-                  <div class="p-3 bg-vitora-primary/10 border border-vitora-primary/20 text-[9px] font-bold text-vitora-secondary text-center rounded-xl leading-normal mt-4">
+                  <div class="p-3 bg-vitora-primary/10 border border-vitora-primary/20 text-xs font-bold text-vitora-secondary text-center rounded-xl leading-normal mt-4">
                     Image checks are set to non-blocking warning parameters.
                   </div>
                 </div>
               </div>
 
               <div class="flex justify-start pt-3 border-t border-slate-100">
-                <button type="button" onclick="goToStep(1)" class="px-4 py-2 rounded-xl glass-button-secondary text-[9px] font-black uppercase border border-slate-200">Back</button>
+                <button type="button" onclick="goToStep(1)" class="px-4 py-2 rounded-xl glass-button-secondary text-xs font-black uppercase border border-slate-200">Back</button>
               </div>
             </div>
 
@@ -397,10 +397,10 @@
                 </div>
               </div>
               <div class="text-center space-y-1">
-                <div class="flex items-center justify-center gap-2 text-vitora-primary font-black text-3xs uppercase tracking-widest">
+                <div class="flex items-center justify-center gap-2 text-vitora-primary font-black text-xs uppercase tracking-widest">
                   <i data-lucide="refresh-cw" class="w-4 h-4 animate-spin"></i> Processing Facial Geometric Landmarks...
                 </div>
-                <p class="text-[9px] font-bold text-vitora-text/40 uppercase tracking-widest">Estimating tissue depletion ratios</p>
+                <p class="text-xs font-bold text-vitora-text/40 uppercase tracking-widest">Estimating tissue depletion ratios</p>
               </div>
             </div>
 
@@ -411,7 +411,7 @@
                   <i data-lucide="activity" class="w-5.5 h-5.5"></i>
                   <h3 class="text-sm font-black uppercase tracking-wider text-vitora-text">3. Diagnostic Assessment</h3>
                 </div>
-                <span id="diagnostic-risk-badge" class="px-3 py-0.5 rounded-full border text-[10px] font-black uppercase text-red-500 bg-red-500/10 border-red-500/20">
+                <span id="diagnostic-risk-badge" class="px-3 py-0.5 rounded-full border text-xs font-black uppercase text-red-500 bg-red-500/10 border-red-500/20">
                   High Risk
                 </span>
               </div>
@@ -420,25 +420,25 @@
                 
                 <!-- Circle indicator gauge -->
                 <div class="glass-panel p-4 rounded-2xl flex flex-col items-center justify-center text-center border-white/40">
-                  <p class="text-[8px] font-black text-vitora-text/40 uppercase tracking-widest mb-3">Overall Risk index</p>
-                  <div class="relative w-28 h-28 flex items-center justify-center">
+                  <p class="text-xs font-black text-vitora-text/40 uppercase tracking-widest mb-3">Overall Risk index</p>
+                  <div class="relative w-36 h-36 flex items-center justify-center">
                     <svg class="w-full h-full transform -rotate-90">
-                      <circle stroke="rgba(0,0,0,0.06)" fill="transparent" stroke-width="6" r="34" cx="56" cy="56" />
-                      <circle stroke="#EF4444" fill="transparent" stroke-width="6" stroke-dasharray="213.6 213.6" stroke-dashoffset="50" r="34" cx="56" cy="56" stroke-linecap="round" id="gauge-circle" />
+                      <circle stroke="rgba(0,0,0,0.06)" fill="transparent" stroke-width="6" r="50" cx="72" cy="72" />
+                      <circle stroke="#EF4444" fill="transparent" stroke-width="6" stroke-dasharray="314.2 314.2" stroke-dashoffset="75" r="50" cx="72" cy="72" stroke-linecap="round" id="gauge-circle" />
                     </svg>
                     <div class="absolute inset-0 flex flex-col items-center justify-center">
                       <span id="gauge-score-text" class="text-xl font-black text-vitora-text">76%</span>
-                      <span class="text-[8px] text-vitora-text/40 font-bold uppercase">Severe</span>
+                      <span class="text-xs text-vitora-text/40 font-bold uppercase">Severe</span>
                     </div>
                   </div>
-                  <p class="text-[8px] text-vitora-text/50 font-bold uppercase tracking-wider mt-3">Accuracy Model: 92%</p>
+                  <p class="text-xs text-vitora-text/50 font-bold uppercase tracking-wider mt-3">Accuracy Model: 92%</p>
                 </div>
 
                 <!-- Custom Bar graph -->
                 <div class="md:col-span-2 glass-panel p-4 rounded-2xl border-white/40 flex flex-col justify-between">
-                  <p class="text-[8px] font-black text-vitora-text/40 uppercase tracking-widest mb-3">WHO Z-Score Curve Limits</p>
+                  <p class="text-xs font-black text-vitora-text/40 uppercase tracking-widest mb-3">WHO Z-Score Curve Limits</p>
                   
-                  <div class="flex items-end justify-around h-28 border-b border-slate-200/60 pb-1 relative">
+                  <div class="flex items-end justify-around h-48 border-b border-slate-200/60 pb-1 relative">
                     <!-- SAM Limit line -->
                     <div class="absolute bottom-[35%] left-0 right-0 border-t border-dashed border-red-500 z-10 flex justify-between px-2">
                       <span class="text-[7px] text-red-500 font-extrabold uppercase bg-white/90 px-1 rounded -translate-y-1.5">WHO SAM Threshold (-2.0)</span>
@@ -447,15 +447,15 @@
                     <!-- Column 1 -->
                     <div class="flex flex-col items-center z-20 w-1/3">
                       <div class="w-6 bg-red-500 rounded-t-lg h-20 transition-all duration-700" id="bar-wasting"></div>
-                      <span class="text-[8px] font-black text-vitora-text/70 mt-1 uppercase">Wasting Z</span>
-                      <span class="text-[8px] font-bold text-red-500" id="val-wasting">-2.4</span>
+                      <span class="text-xs font-black text-vitora-text/70 mt-1 uppercase">Wasting Z</span>
+                      <span class="text-xs font-bold text-red-500" id="val-wasting">-2.4</span>
                     </div>
 
                     <!-- Column 2 -->
                     <div class="flex flex-col items-center z-20 w-1/3">
                       <div class="w-6 bg-emerald-500 rounded-t-lg h-10 transition-all duration-700" id="bar-stunting"></div>
-                      <span class="text-[8px] font-black text-vitora-text/70 mt-1 uppercase">Stunting Z</span>
-                      <span class="text-[8px] font-bold text-emerald-600" id="val-stunting">-1.2</span>
+                      <span class="text-xs font-black text-vitora-text/70 mt-1 uppercase">Stunting Z</span>
+                      <span class="text-xs font-bold text-emerald-600" id="val-stunting">-1.2</span>
                     </div>
                   </div>
 
@@ -464,8 +464,8 @@
               </div>
 
               <div class="flex justify-between items-center pt-3 border-t border-slate-100">
-                <button onclick="handleResetDeck()" class="px-4 py-2 rounded-xl glass-button-secondary text-[9px] font-black uppercase border border-slate-200">Reset</button>
-                <button onclick="goToStep(5)" class="flex items-center gap-1 px-5 py-2.5 rounded-xl glass-button text-[10px] font-black shadow-md">
+                <button onclick="handleResetDeck()" class="px-4 py-2 rounded-xl glass-button-secondary text-xs font-black uppercase border border-slate-200">Reset</button>
+                <button onclick="goToStep(5)" class="flex items-center gap-1 px-5 py-2.5 rounded-xl glass-button text-xs font-black shadow-md">
                   Review Action Plan <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
                 </button>
               </div>
@@ -481,7 +481,7 @@
               <!-- Recommendation Card Stacks -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
-                <div class="p-4 bg-white/40 border border-white/60 rounded-2xl flex gap-2.5 text-[9px]">
+                <div class="p-4 bg-white/40 border border-white/60 rounded-2xl flex gap-2.5 text-xs">
                   <i data-lucide="apple" class="w-5 h-5 text-vitora-primary flex-shrink-0"></i>
                   <div>
                     <h4 class="font-extrabold text-vitora-text uppercase tracking-wide">Suggested Nutrition</h4>
@@ -491,7 +491,7 @@
                   </div>
                 </div>
 
-                <div class="p-4 bg-white/40 border border-white/60 rounded-2xl flex gap-2.5 text-[9px]">
+                <div class="p-4 bg-white/40 border border-white/60 rounded-2xl flex gap-2.5 text-xs">
                   <i data-lucide="heart" class="w-5 h-5 text-vitora-secondary flex-shrink-0"></i>
                   <div>
                     <h4 class="font-extrabold text-vitora-text uppercase tracking-wide">Dietary Protocols</h4>
@@ -506,21 +506,21 @@
               <!-- PDF compilation card -->
               <div class="p-4 bg-green-500/5 border border-green-500/20 rounded-2xl flex flex-col sm:flex-row justify-between sm:items-center gap-3">
                 <div>
-                  <h4 class="text-[9px] font-black uppercase text-green-700 tracking-wider">Hospital Record Compiled</h4>
-                  <p class="text-[8px] font-semibold text-vitora-text/70 mt-0.5">
+                  <h4 class="text-xs font-black uppercase text-green-700 tracking-wider">Hospital Record Compiled</h4>
+                  <p class="text-xs font-semibold text-vitora-text/70 mt-0.5">
                     Download the official pediatrician screening PDF generated inside the database.
                   </p>
                 </div>
-                <button onclick="downloadPdfMock()" class="flex items-center gap-1.5 px-4 py-2.5 rounded-xl glass-button text-[9px] font-black shadow-md self-start sm:self-center active:scale-98">
+                <button onclick="downloadPdfMock()" class="flex items-center gap-1.5 px-4 py-2.5 rounded-xl glass-button text-xs font-black shadow-md self-start sm:self-center active:scale-98">
                   <i data-lucide="download" class="w-3.5 h-3.5"></i> Download PDF Sheet
                 </button>
               </div>
 
               <div class="flex justify-between items-center pt-3 border-t border-slate-100">
-                <button onclick="goToStep(4)" class="px-4 py-2 rounded-xl glass-button-secondary text-[9px] font-black uppercase border border-slate-200 flex items-center gap-1">
+                <button onclick="goToStep(4)" class="px-4 py-2 rounded-xl glass-button-secondary text-xs font-black uppercase border border-slate-200 flex items-center gap-1">
                   <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Graph
                 </button>
-                <button onclick="handleResetDeck()" class="px-5 py-2.5 rounded-xl glass-button text-[10px] font-black shadow-md flex items-center gap-1 active:scale-98">
+                <button onclick="handleResetDeck()" class="px-5 py-2.5 rounded-xl glass-button text-xs font-black shadow-md flex items-center gap-1 active:scale-98">
                   <i data-lucide="check" class="w-3.5 h-3.5"></i> Complete Screening
                 </button>
               </div>
@@ -535,7 +535,7 @@
             <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-3">
               <div>
                 <h3 class="text-sm font-black text-vitora-text uppercase tracking-wider">Patient History Database</h3>
-                <p class="text-[8px] text-vitora-text/45 font-bold uppercase tracking-wider">Archived diagnostic records</p>
+                <p class="text-xs text-vitora-text/45 font-bold uppercase tracking-wider">Archived diagnostic records</p>
               </div>
               <div class="relative w-full sm:w-64">
                 <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400"></i>
@@ -549,10 +549,10 @@
               <div onclick="loadArchiveItem('Marcus Aurelius', 'MALE', 36, 'Normal', 92, 14, 12, 72)" class="p-3 bg-white/30 border border-white/50 hover:bg-white/60 cursor-pointer rounded-2xl flex items-center justify-between transition-colors">
                 <div class="space-y-0.5">
                   <p class="text-xs font-bold text-vitora-text">Marcus Aurelius</p>
-                  <span class="text-[9px] text-vitora-text/40 font-bold uppercase">Boy | 36 Months</span>
+                  <span class="text-xs text-vitora-text/40 font-bold uppercase">Boy | 36 Months</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="px-2 py-0.5 rounded-full border text-[8px] font-black uppercase text-emerald-600 bg-emerald-50/50 border-emerald-500/10">Normal</span>
+                  <span class="px-2 py-0.5 rounded-full border text-xs font-black uppercase text-emerald-600 bg-emerald-50/50 border-emerald-500/10">Normal</span>
                   <button onclick="event.stopPropagation(); downloadPdfMock()" class="p-1.5 hover:bg-vitora-primary/10 rounded-lg text-slate-400 hover:text-vitora-primary"><i data-lucide="download" class="w-4 h-4"></i></button>
                 </div>
               </div>
@@ -561,10 +561,10 @@
               <div onclick="loadArchiveItem('Sophia Loren', 'FEMALE', 28, 'Moderate Risk', 54, 87, -1.8, -2.1)" class="p-3 bg-white/30 border border-white/50 hover:bg-white/60 cursor-pointer rounded-2xl flex items-center justify-between transition-colors">
                 <div class="space-y-0.5">
                   <p class="text-xs font-bold text-vitora-text">Sophia Loren</p>
-                  <span class="text-[9px] text-vitora-text/40 font-bold uppercase">Girl | 28 Months</span>
+                  <span class="text-xs text-vitora-text/40 font-bold uppercase">Girl | 28 Months</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="px-2 py-0.5 rounded-full border text-[8px] font-black uppercase text-amber-500 bg-amber-50/50 border-amber-500/10">Moderate Risk</span>
+                  <span class="px-2 py-0.5 rounded-full border text-xs font-black uppercase text-amber-500 bg-amber-50/50 border-amber-500/10">Moderate Risk</span>
                   <button onclick="event.stopPropagation(); downloadPdfMock()" class="p-1.5 hover:bg-vitora-primary/10 rounded-lg text-slate-400 hover:text-vitora-primary"><i data-lucide="download" class="w-4 h-4"></i></button>
                 </div>
               </div>
@@ -573,10 +573,10 @@
               <div onclick="loadArchiveItem('Leo Messi', 'MALE', 42, 'High Risk', 88, 92, -2.8, -2.4)" class="p-3 bg-white/30 border border-white/50 hover:bg-white/60 cursor-pointer rounded-2xl flex items-center justify-between transition-colors">
                 <div class="space-y-0.5">
                   <p class="text-xs font-bold text-vitora-text">Leo Messi</p>
-                  <span class="text-[9px] text-vitora-text/40 font-bold uppercase">Boy | 42 Months</span>
+                  <span class="text-xs text-vitora-text/40 font-bold uppercase">Boy | 42 Months</span>
                 </div>
                 <div class="flex items-center gap-3">
-                  <span class="px-2 py-0.5 rounded-full border text-[8px] font-black uppercase text-red-500 bg-red-50/50 border-red-500/10">High Risk</span>
+                  <span class="px-2 py-0.5 rounded-full border text-xs font-black uppercase text-red-500 bg-red-50/50 border-red-500/10">High Risk</span>
                   <button onclick="event.stopPropagation(); downloadPdfMock()" class="p-1.5 hover:bg-vitora-primary/10 rounded-lg text-slate-400 hover:text-vitora-primary"><i data-lucide="download" class="w-4 h-4"></i></button>
                 </div>
               </div>
@@ -590,7 +590,7 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="text-center py-4 text-[8px] text-vitora-text/30 font-bold uppercase tracking-widest">
+    <footer class="text-center py-4 text-xs text-vitora-text/30 font-bold uppercase tracking-widest">
       Vitora Inc. © 2026 | Secured Pediatric Diagnostic Portal
     </footer>
 
@@ -648,14 +648,14 @@
       const archiveContent = document.getElementById('archive-tab-content');
 
       if (tab === 'WIZARD') {
-        wizardBtn.className = 'px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 bg-vitora-primary text-white shadow-sm';
-        archiveBtn.className = 'px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 text-vitora-text/60 hover:text-vitora-text';
+        wizardBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 bg-vitora-primary text-white shadow-sm';
+        archiveBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 text-vitora-text/60 hover:text-vitora-text';
         wizardContent.classList.remove('hidden');
         archiveContent.classList.add('hidden');
         updateStepCounterText();
       } else {
-        archiveBtn.className = 'px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 bg-vitora-primary text-white shadow-sm';
-        wizardBtn.className = 'px-4 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-wider transition-all flex items-center gap-1.5 text-vitora-text/60 hover:text-vitora-text';
+        archiveBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 bg-vitora-primary text-white shadow-sm';
+        wizardBtn.className = 'px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 text-vitora-text/60 hover:text-vitora-text';
         archiveContent.classList.remove('hidden');
         wizardContent.classList.add('hidden');
         document.getElementById('step-counter-text').innerText = 'DATABASE ARCHIVE';
@@ -701,7 +701,7 @@
       setTimeout(() => {
         // Mock a high risk score output
         document.getElementById('diagnostic-risk-badge').innerText = 'High Risk';
-        document.getElementById('diagnostic-risk-badge').className = 'px-3 py-0.5 rounded-full border text-[10px] font-black uppercase text-red-500 bg-red-500/10 border-red-500/20';
+        document.getElementById('diagnostic-risk-badge').className = 'px-3 py-0.5 rounded-full border text-xs font-black uppercase text-red-500 bg-red-500/10 border-red-500/20';
         document.getElementById('gauge-score-text').innerText = '76%';
         document.getElementById('gauge-circle').setAttribute('stroke', '#EF4444');
         document.getElementById('gauge-circle').setAttribute('stroke-dashoffset', '50');
@@ -710,11 +710,11 @@
         document.getElementById('bar-wasting').style.height = '80px';
         document.getElementById('bar-wasting').setAttribute('class', 'w-6 bg-red-500 rounded-t-lg transition-all duration-700');
         document.getElementById('val-wasting').innerText = '-2.4';
-        document.getElementById('val-wasting').className = 'text-[8px] font-bold text-red-500';
+        document.getElementById('val-wasting').className = 'text-xs font-bold text-red-500';
 
         document.getElementById('bar-stunting').style.height = '40px';
         document.getElementById('val-stunting').innerText = '-1.2';
-        document.getElementById('val-stunting').className = 'text-[8px] font-bold text-emerald-600';
+        document.getElementById('val-stunting').className = 'text-xs font-bold text-emerald-600';
 
         document.getElementById('recommendation-nutrition').innerText = 'Immediate administration of high-energy therapeutic RUTF diets under outpatient care.';
 
@@ -768,22 +768,22 @@
       const badge = document.getElementById('diagnostic-risk-badge');
       badge.innerText = risk;
       if (risk === 'High Risk') {
-        badge.className = 'px-3 py-0.5 rounded-full border text-[10px] font-black uppercase text-red-500 bg-red-500/10 border-red-500/20';
+        badge.className = 'px-3 py-0.5 rounded-full border text-xs font-black uppercase text-red-500 bg-red-500/10 border-red-500/20';
         document.getElementById('gauge-circle').setAttribute('stroke', '#EF4444');
         document.getElementById('recommendation-nutrition').innerText = 'Immediate administration of high-energy therapeutic RUTF diets under outpatient care.';
       } else if (risk === 'Moderate Risk') {
-        badge.className = 'px-3 py-0.5 rounded-full border text-[10px] font-black uppercase text-amber-500 bg-amber-500/10 border-amber-500/20';
+        badge.className = 'px-3 py-0.5 rounded-full border text-xs font-black uppercase text-amber-500 bg-amber-500/10 border-amber-500/20';
         document.getElementById('gauge-circle').setAttribute('stroke', '#F59E0B');
         document.getElementById('recommendation-nutrition').innerText = 'Provide nutrient-dense supplementary local foods, eggs, and milk twice daily.';
       } else {
-        badge.className = 'px-3 py-0.5 rounded-full border text-[10px] font-black uppercase text-emerald-600 bg-emerald-500/10 border-emerald-500/20';
+        badge.className = 'px-3 py-0.5 rounded-full border text-xs font-black uppercase text-emerald-600 bg-emerald-500/10 border-emerald-500/20';
         document.getElementById('gauge-circle').setAttribute('stroke', '#10B981');
         document.getElementById('recommendation-nutrition').innerText = 'Maintain balanced complimentary feeding, monitoring growth markers monthly.';
       }
 
       // Update Gauge
       document.getElementById('gauge-score-text').innerText = `${overall}%`;
-      const offset = 213.6 - (overall / 100) * 213.6;
+      const offset = 314.2 - (overall / 100) * 314.2;
       document.getElementById('gauge-circle').setAttribute('stroke-dashoffset', offset.toString());
 
       // Update wasting column
@@ -796,8 +796,8 @@
       const wastingText = document.getElementById('val-wasting');
       wastingText.innerText = wastingZ.toString();
       wastingText.className = wastingZ < -2 
-        ? 'text-[8px] font-bold text-red-500' 
-        : 'text-[8px] font-bold text-emerald-600';
+        ? 'text-xs font-bold text-red-500' 
+        : 'text-xs font-bold text-emerald-600';
 
       // Update stunting column
       const stuntingHeight = Math.max(10, Math.min(100, Math.abs(stuntingZ) * 35));
@@ -809,8 +809,8 @@
       const stuntingText = document.getElementById('val-stunting');
       stuntingText.innerText = stuntingZ.toString();
       stuntingText.className = stuntingZ < -2 
-        ? 'text-[8px] font-bold text-red-500' 
-        : 'text-[8px] font-bold text-emerald-600';
+        ? 'text-xs font-bold text-red-500' 
+        : 'text-xs font-bold text-emerald-600';
 
       // Switch to wizard and jump to results step (4)
       switchTab('WIZARD');
@@ -864,7 +864,7 @@
           <div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 font-bold text-xs">${acc.avatar}</div>
           <div>
             <p class="text-xs font-bold text-slate-800">${acc.name}</p>
-            <p class="text-[10px] text-slate-500">${acc.email}</p>
+            <p class="text-xs text-slate-500">${acc.email}</p>
           </div>
         `;
         container.appendChild(btn);
